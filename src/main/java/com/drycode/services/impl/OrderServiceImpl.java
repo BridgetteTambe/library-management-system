@@ -46,11 +46,11 @@ public class OrderServiceImpl implements OrderService {
         if (!ObjectUtils.isEmpty(order.getBooks()) && order.getBooks().size() > 0) {
             Set<Book> booksToBeUpdated = new HashSet<>();
             order.getBooks().forEach(orderedBook -> {
-                Book existingBook = this.bookService.findById(orderedBook.getId());
+                Book existingBook = this.bookService.findById(orderedBook.getBookId());
                 if (ObjectUtils.isEmpty(existingBook)) {
                     throw new RuntimeException("Selected book does not exists: " + orderedBook.getName());
                 }
-                int quantity = existingBook.getQuantity() - 1;
+                int quantity = existingBook.getQuantity() - orderedBook.getQuantity();
                 if (quantity >= 0) {
                     existingBook.setQuantity(quantity);
                     booksToBeUpdated.add(existingBook);
@@ -101,11 +101,11 @@ public class OrderServiceImpl implements OrderService {
         if (!ObjectUtils.isEmpty(order.getBooks()) && order.getBooks().size() > 0) {
             Set<Book> booksToBeUpdated = new HashSet<>();
             order.getBooks().forEach(orderedBook -> {
-                Book existingBook = this.bookService.findById(orderedBook.getId());
+                Book existingBook = this.bookService.findById(orderedBook.getBookId());
                 if (ObjectUtils.isEmpty(existingBook)) {
                     throw new RuntimeException("Selected book does not exists: " + orderedBook.getName());
                 }
-                int quantity = existingBook.getQuantity() + 1;
+                int quantity = existingBook.getQuantity() + orderedBook.getQuantity();
                 existingBook.setQuantity(quantity);
                 booksToBeUpdated.add(existingBook);
             });

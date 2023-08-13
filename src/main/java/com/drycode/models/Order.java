@@ -1,5 +1,6 @@
 package com.drycode.models;
 
+import com.drycode.models.dto.BookDTO;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -28,7 +29,7 @@ public class Order {
     @Field(name = "Fine")
     private Double fine;
     @Field(name = "Books")
-    private Set<Book> books = new TreeSet<>();
+    private Set<BookDTO> books = new TreeSet<>();
     @Field(name = "Status")
     private Status status;
     @Field(name = "User")
