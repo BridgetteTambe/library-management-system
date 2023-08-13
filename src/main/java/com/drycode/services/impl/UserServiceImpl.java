@@ -72,7 +72,7 @@ public class UserServiceImpl implements UserService {
             user.setId(generateSequence.generateSequence(Status.SEQUENCE_NAME));
             if (statusExist.size() > 0) {
                 throw new Exception(ConstantString.NAMES_EXIST.replaceAll("#ENTITY", ENTITY)
-                        .replace("#NAMEEXISTS", user.getUsername()));
+                        .replace("#NAMEEXISTS", "username '"+ user.getUsername()+"'"));
             }
         } else {
             boolean userExist = statusExist.stream().filter(s -> Objects.equals(s.getId(), user.getId())).count() > 0;

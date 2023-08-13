@@ -3,7 +3,7 @@ package com.drycode.utils;
 public class ConstantString {
     public static final String ID_EXISTS = "Can not create new #ENTITY with id: #ID. already exists";
     public static final String ID_NULL = "Can not update #ENTITY with id.null: ";
-    public static final String NAMES_EXIST = "A #ENTITY already exists with the #NAMEEXISTS: ";
+    public static final String NAMES_EXIST = "A #ENTITY already exists with the #NAMEEXISTS ";
     public static final String NAME_NULL = "#ENTITY field #NAME can not be null: ";
 
 
