@@ -62,6 +62,10 @@ public class UserResource {
     @DeleteMapping("/user")
     public ResponseEntity deleteUser(@RequestBody User user) throws Exception {
         LOGGER.info(ConstantString.REST_DELETE_LOG.replaceAll("#ENTITY", ENTITY), user);
+        if(user.getId() == null){
+            throw new Exception(ConstantString.USER_NULL.replaceAll("#ID", "")
+                    .replaceAll("#ENTITY", ENTITY));
+        }
         this.userService.delete(user);
         return ResponseEntity.ok(HttpStatus.ACCEPTED);
     }

@@ -51,8 +51,8 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
                         "/v2/api-docs", "/webjars/**")
                 .permitAll()
                 .antMatchers(HttpMethod.POST, "/api/authenticate", "/api/user").permitAll()
-//                .anyRequest().authenticated()
-                .anyRequest().permitAll()
+                .anyRequest().authenticated()
+//                .anyRequest().permitAll()
                 .and().sessionManagement()
                 .sessionAuthenticationFailureHandler(customLoginFailureHandler)
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);

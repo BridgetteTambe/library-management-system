@@ -6,6 +6,8 @@ public class ConstantString {
     public static final String NAMES_EXIST = "A #ENTITY already exists with the #NAMEEXISTS ";
     public static final String NAME_NULL = "#ENTITY field #NAME can not be null: ";
 
+    public static final String USER_NULL =  "Can not delete #ENTITY with user.null: ";
+
 
     // SERVICE LOGS
     public static final String DELETE_LOG = "Request to delete #ENTITY:  {}";
